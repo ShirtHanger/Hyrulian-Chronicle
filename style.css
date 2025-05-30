@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+body {
+    background: #f8f5e4 url('backgrounds/old-mathematics.png');
+    color: darkgreen;
+    font-family: 'UnifrakturCook', 'IM Fell English', 'Garamond', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6, .category-button {
+    font-family: 'UnifrakturCook', 'IM Fell English', serif;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 350px;
+    padding: 10px 16px;
+    margin: 30px auto 20px auto;
+    display: block;
+    border: 2px solid #a67c52;
+    border-radius: 8px;
+    background: #f3ecd4;
+    font-size: 1.1em;
+    font-family: 'IM Fell English', serif;
+    box-shadow: 0 2px 8px #bfa77a55;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:hover {
+    border-color: #7c5a1f;
+    background: #f9f6ee;
+}
+
+a {
+    color: darkgreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#category-buttons {
+    justify-content: space-evenly;
+    margin: 2vw;
+}
+
+.category-button {
+    background: linear-gradient(145deg, #e9d8a6 60%, beige 100%);
+    color: brown;
+    border: 2px solid tomato;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px silver;
+    transition: background 0.2s, transform 0.1s;
+    text-shadow: 1px 1px 0 #fffbe6;
+}
+
+.category-button:hover {
+    background: linear-gradient(145deg, gold 60%, beige 100%);
+    transform: translateY(-2px) scale(1.04);
+    border-color: red;
+}
+
+#results-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: silver;
+    border: 2px solid tomato;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px silver;
+    padding: 24px 32px;
+}
+
+#results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.result-item {
+    padding: 1vw 0;
+    border-bottom: 1px dashed tomato;
+    font-size: 1.1em;
+    font-family: 'IM Fell English', serif;
+}
+
+.result-item:hover {
+    background: linear-gradient(145deg, gold 60%, beige 100%);
+    transform: translateY(-2px) scale(1.04);
+    border-color: #7c5a1f;
+}

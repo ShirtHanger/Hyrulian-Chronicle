@@ -1,0 +1,55 @@
+SCHEMAS (Strings unless otherwise specified)
+
+Games
+    name
+    description
+    developer
+    publisher
+    released_date
+    id
+    
+
+Staff
+    name
+    id
+    worked_on [List of games]
+
+Characters
+    name
+    description
+    gender
+    race
+    id
+    appearances [List of games]
+
+Monsters
+    name
+    description
+    id
+    appearances [List of games]
+
+Bosses
+    name
+    description
+    id
+    appearances [List of games]
+    Dungeons [list of Dungeons]
+
+Dungeons
+    name
+    description
+    id
+    appearances [List of games]
+
+Places
+    name
+    description
+    id
+    appearances [List of games]
+    inhabitants [List of Characters]
+
+Items
+    name
+    description
+    id
+    games [List of games]

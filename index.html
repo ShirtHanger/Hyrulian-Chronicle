@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyrulian Chronicle</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+
+    <script src="script.js" type="module" defer></script>
+    <script src="links.js" type="module" defer></script>
+    <script src="get-functions.js" type="module" defer></script>
+
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+
+</head>
+<body>
+
+    <h1>Hyrulian Chronicle</h1>
+
+    <input type="text" id="user-input" placeholder="Search for a character...">
+
+<div id="category-buttons">
+        <button class="category-button">Characters</button>
+        <button class="category-button">Places</button>
+        <button class="category-button">Items</button>
+        <button class="category-button">Games</button>
+        <button class="category-button">Staff</button>
+        <button class="category-button">Bosses</button>
+        <button class="category-button">Dungeons</button>
+        <button class="category-button">Monsters</button>
+</div>
+
+<div id="results-container">
+    <h2 id="results-title">Search Results</h2>
+    <ul id="results-list">
+        <!-- Search results will be populated here -->
+    </ul>
+
+</div>
+    
+</body>
+</html>
