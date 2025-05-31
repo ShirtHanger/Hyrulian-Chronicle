@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap');
+
+/* UnifrakturCook is hard to read, use for special things only */
 
 body {
     background: #f8f5e4 url('backgrounds/old-mathematics.png');
@@ -18,6 +20,8 @@ h1, h2, h3, h4, h5, h6, .category-button {
     font-family: 'UnifrakturCook', 'IM Fell English', serif;
     letter-spacing: 1px;
 }
+
+
 
 input {
     width: 350px;
@@ -45,6 +49,18 @@ a {
     font-weight: bold;
 }
 
+img {
+    max-width: 5%;
+    max-height: 5%;
+}
+
+#title-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 #category-buttons {
     justify-content: space-evenly;
     margin: 2vw;
@@ -63,14 +79,37 @@ a {
     text-shadow: 1px 1px 0 #fffbe6;
 }
 
-.category-button:hover {
+.category-button:hover, #quote-button:hover {
     background: linear-gradient(145deg, gold 60%, beige 100%);
     transform: translateY(-2px) scale(1.04);
     border-color: red;
 }
 
+#quote-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #f3ecd4;
+    border: 2px solid #a67c52;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px darkgray;
+    padding: 24px 32px;
+}
+
+#quote-button {
+    background: linear-gradient(145deg, #e9d8a6 60%, beige 100%);
+    color: brown;
+    border: 2px solid tomato;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 1.1em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px silver;
+    transition: background 0.2s, transform 0.1s;
+    text-shadow: 1px 1px 0 #fffbe6;
+}
+
 #results-container {
-    max-width: 700px;
+    max-width: 1000px;
     margin: 0 auto;
     background: silver;
     border: 2px solid tomato;
@@ -79,17 +118,29 @@ a {
     padding: 24px 32px;
 }
 
+/* Remove flex stuff for vertical list */
 #results-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+/* IDK how this works but it makes everything neat and sorted */
 .result-item {
-    padding: 1vw 0;
+    flex: 1 1 calc(25% - 2vw);
+    box-sizing: border-box;
+}
+.result-item {
+    padding: 2vw 2vw;
     border-bottom: 1px dashed tomato;
     font-size: 1.1em;
     font-family: 'IM Fell English', serif;
+    border-radius: 20%;
+    background-color: goldenrod;
+    margin: 1vw;
 }
 
 .result-item:hover {
