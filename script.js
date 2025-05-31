@@ -23,15 +23,21 @@ let randomRupee = randNum(rupeeImageList.length)
 let randomQuote = randNum(hyrulianQuoteAndAuthor.length)
 
 
-loadQuote(randomQuote)
+window.addEventListener('load', async () => {
+    console.log('PAGE IS LOADED')
+    console.log('===================')
+    for (let rupeeImage of titleRupeeImage) {
+        rupeeImage.src = rupeeImageList[randomRupee]
+    }
+
+    loadQuote(randomQuote)
+
+})
+
 quoteButton.addEventListener('click', function () {
     randomQuote = randNum(hyrulianQuoteAndAuthor.length)
     loadQuote(randomQuote)
 })
-
-for (let rupeeImage of titleRupeeImage) {
-    rupeeImage.src = rupeeImageList[randomRupee]
-}
 
 for (let button of categoryButtons) {
 
@@ -41,24 +47,25 @@ for (let button of categoryButtons) {
         clearResults()
         let category = button.textContent.toLowerCase()
 
-        let items = await getSomeItems(category, resultsTitle)
+        let items = await getAllItems(category, resultsTitle)
         
+        /* Loads all items from the API pull into a list, attaches an event listener to each one to pull it's API ID */
         for (let item of items) {
+            console.log(`Adding item: ${item.name} with ID: ${item.id}`)
+
             let listItem = document.createElement('li')
             listItem.classList.add('result-item')
-            listItem.innerHTML = `<a href="${category}-details.html">${item.name}</a>`
+            listItem.innerHTML = `<a href="detail.html">${item.name}</a>`
+            /* Must attach even listener to each individual item for some reason lmao */
+            listItem.addEventListener('click', function () {
+                loadUpItem(item.id, item.name)
+            })
             resultsList.appendChild(listItem)
         }
 
         /* Here to allow user to link to a show page */
         let resultItems = document.querySelectorAll('.result-item')
 
-        for (let resultItem of resultItems) {
-            resultItem.addEventListener('click', async function () {
-                let itemName = resultItem.textContent
-                console.log(`Clicked on item: ${itemName}`)
-            })
-        }
     })
 }
 
@@ -83,3 +90,14 @@ function loadQuote(randomNumber) {
     if (quoteButton.textContent === ``)
         quoteButton.textContent = 'Reload quote'
 }
+
+function loadUpItem(itemID, itemName) {
+
+    console.log(`Clicked on item: ${itemName}`)
+    console.log(`Item ID: ${itemID}`)
+    localStorage.setItem('loadedItemID', itemID)
+    localStorage.setItem('loadedItemName', itemName)
+    /* Allows the item's ID to be passed onto a data.js file (Name later) */
+}
+
+export { titleRupeeImage, resultsList, resultsTitle, searchInput, searchButton, categoryButtons, quoteContainer, zeldaQuote, zeldaQuoteAuthor, zeldaQuoteGame, quoteButton }

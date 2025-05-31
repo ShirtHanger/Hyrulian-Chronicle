@@ -2,11 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Archive of Hyrule - Detail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyrulian Chronicle - Detail</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+
+    <script src="detail.js" type="module" defer></script>
+    <script src="links.js" type="module" defer></script>
+    <script src="get-functions.js" type="module" defer></script>
+
+
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
+
 </head>
 <body>
-    <h1>Archive of Hyrule</h1>
-    <p>Detail page coming soon...</p>
+    <h1>Hyrulian Chronicle</h1>
+    <h3 id="search-result-name"><!-- Link --></h3>
+    <h4 id="search-result-id"> <!-- 12345 --></h4> <!-- For debuggin purposes -->
+    <p id="search-resul-description"><!-- Link is the hero of the story --></p>
+    <p>More details coming soon...</p>
+
+    <div id="game-container">
+        <h6>If it's a game, game data fills here</h6>
+    </div>
+    <div id="place-container">
+        <h6>If it's a place, place data fills here</h6>
+    </div>
+    <div id="character-container">
+        <h6>If it's a character, character data fills here</h6>
+    </div>
+    <div id="boss-container">
+        <h6>If it's a boss, boss data fills here</h6>
+    </div>
+    <div id="monster-container">
+        <h6>If it's a monster, monster data fills here</h6>
+    </div>
+    <div id="item-container">
+        <h6>If it's an item, item data fills here</h6>
+    </div>
+    <div id="dungeon-container">
+        <h6>If it's a dungeon, dungeon data fills here</h6>
+    </div>
+    <div id="staff-container">
+        <h6>If it's staff, staff data fills here</h6>
+    </div>
 </body>
 </html>

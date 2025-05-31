@@ -13,7 +13,7 @@ async function getSomeItems(category, resultsTitle) {
 async function getAllItems(category, resultsTitle) {
     console.log(`Fetching all items for category: ${category}`)
 
-    let limit = 5 /* Doesn't let me put big numbers for some reason */
+    let limit = 10 /* Doesn't let me put big numbers for some reason */
     // There's an issue with the API that does not allow me to use proper big numbers to push larger arrays.
     // A limit of 1 gets the MOST items, but still doesn't get everything. LONG ASS load time as well.
     // Diminishing returns with larger limits
