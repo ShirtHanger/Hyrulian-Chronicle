@@ -35,13 +35,18 @@ quoteButton.addEventListener('click', function () {
 })
 
 /* Each button will pull results from the Zelda API of the related category */
+/* KNOWN BUG: Clicking two category buttons at the same time before one loads results in a combined list of results,
+Find out how to clear the list in progress BEFORE allowing reclick.
+Check get-functions.js */
 for (let button of categoryButtons) {
 
     button.addEventListener('click', async function () {
+
+        clearResults()
         console.log(`Category button clicked: ${button.textContent}`)
 
         /* Clear previous screen */
-        clearResults()
+        
         let category = button.textContent.toLowerCase()
         currentCategory = button.textContent.toLowerCase() /* Sets current category for detail.js */
 
