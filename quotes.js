@@ -1,28 +1,3 @@
-const hyrulianQuotesFake = [
-    "It's dangerous to go alone! Take this.",
-    "The Legend of Zelda is a timeless classic.",
-    "May the Triforce be with you.",
-    "Adventure awaits in Hyrule!",
-    "Link is the hero of time.",
-    "Princess Zelda is always in another castle.",
-    "Ganondorf is a formidable foe.",
-    "The Master Sword is the blade of evil's bane.",
-    "The Ocarina of Time holds great power.",
-    "Hyrule's history is rich and full of legends.",
-    "The Kokiri Forest is a magical place.",
-    "The Lost Woods can be quite tricky.",
-    "The Great Deku Tree is a wise guardian.",
-    "The Gerudo Desert is vast and mysterious.",
-    "The Zora's Domain is a serene underwater kingdom.",
-    "The Gorons are strong and resilient.",
-    "The Sheikah are masters of stealth and shadow.",
-    "The Temple of Time holds secrets of the past.",]
-
-const hyrulianQuotesReal = [
-    `A sword weilds no strength unless the hand that holds it has courage.`,
-    `It's dangerous to go alone! Take this.`,
-]
-
 const hyrulianQuoteAndAuthor = [
     {
         quote: `A sword weilds no strength unless the hand that holds it has courage.`,
@@ -176,12 +151,14 @@ const hyrulianQuoteAndAuthor = [
     }
 ]
 
-export { hyrulianQuotesFake, hyrulianQuotesReal, hyrulianQuoteAndAuthor }
+const pixelImageList = ['./images/green-rupee-1.png', './images/green-rupee-2.png', './images/orange-rupee.png']
+
+export { hyrulianQuoteAndAuthor, pixelImageList }
 
 /* ALL QUOTES FROM A REDDIT POST
 
 Misc
 
-https://www.reddit.com/r/zelda/comments/11f1b2/what_are_your_favorite_quotes_from_the_zelda_games/
+https://www.reddit.com/r/zelda/comments/11f1b2/what_are_your_favorite_quotes_from_the_zelda_games/ 
 
 */

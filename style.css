@@ -108,7 +108,7 @@ img {
     text-shadow: 1px 1px 0 #fffbe6;
 }
 
-#results-container {
+.results-container {
     max-width: 1000px;
     margin: 0 auto;
     background: silver;
@@ -119,7 +119,7 @@ img {
 }
 
 /* Remove flex stuff for vertical list */
-#results-list {
+.results-list {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -129,11 +129,11 @@ img {
 }
 
 /* IDK how this works but it makes everything neat and sorted */
-.result-item {
+.result-object {
     flex: 1 1 calc(25% - 2vw);
     box-sizing: border-box;
 }
-.result-item {
+.result-object {
     padding: 2vw 2vw;
     border-bottom: 1px dashed tomato;
     font-size: 1.1em;
@@ -143,8 +143,20 @@ img {
     margin: 1vw;
 }
 
-.result-item:hover {
+.result-object:hover {
     background: linear-gradient(145deg, gold 60%, beige 100%);
     transform: translateY(-2px) scale(1.04);
     border-color: #7c5a1f;
+}
+
+#related-objects-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #f3ecd4;
+    border: 2px solid #a67c52;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px darkgray;
+    padding: 24px 32px;
 }

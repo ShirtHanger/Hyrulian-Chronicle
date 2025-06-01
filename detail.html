@@ -17,36 +17,55 @@
     <link href="favicon.ico" rel="icon" type="image/x-icon">
 
 </head>
-<body>
-    <h1>Hyrulian Chronicle</h1>
-    <h3 id="search-result-name"><!-- Link --></h3>
-    <h4 id="search-result-id"> <!-- 12345 --></h4> <!-- For debuggin purposes -->
-    <p id="search-resul-description"><!-- Link is the hero of the story --></p>
-    <p>More details coming soon...</p>
 
-    <div id="game-container">
-        <h6>If it's a game, game data fills here</h6>
+<body>
+
+    <header id="title-header">
+        <img src="" alt="pixel image" class="title-images"></img>
+        <h1>Hyrulian Chronicle</h1>
+        <img src="" alt="pixel image" class="title-images"></img>
+    </header id="title-header">
+
+    <h3 id="search-result-name"><!-- Zelda --></h3>
+    <h4 id="search-result-id"> <!-- 12345 --></h4> <!-- For debuggin purposes -->
+    <p id="search-result-description"><!-- Zelda is the Princess --></p>
+
+    <div id="data-container">
+        <h6>Data should load up here</h6>
     </div>
-    <div id="place-container">
-        <h6>If it's a place, place data fills here</h6>
-    </div>
-    <div id="character-container">
-        <h6>If it's a character, character data fills here</h6>
-    </div>
-    <div id="boss-container">
-        <h6>If it's a boss, boss data fills here</h6>
-    </div>
-    <div id="monster-container">
-        <h6>If it's a monster, monster data fills here</h6>
-    </div>
-    <div id="item-container">
-        <h6>If it's an item, item data fills here</h6>
-    </div>
-    <div id="dungeon-container">
-        <h6>If it's a dungeon, dungeon data fills here</h6>
-    </div>
-    <div id="staff-container">
-        <h6>If it's staff, staff data fills here</h6>
-    </div>
+ 
+    <footer id="related-objects-container">
+        <article class="results-container" id="related-games">
+            <h2>Appears in the following games</h2>
+            <ul class="results-list" id="related-games-list">
+                <!-- Related games will populate here -->
+
+            </ul>
+        </article>
+    
+        <article class="results-container" id="related-dungeons">
+            <h2>Appears in the following dungeons</h2>
+            <ul class="results-list" id="related-dungeons-list">
+                <!-- Related dungeons will populate here -->
+    
+            </ul>
+    
+        </article>
+        <article class="results-container" id="related-characters">
+            <h2>The following characters live here</h2>
+            <ul class="results-list" id="related-characters-list">
+                <!-- Related characters will populate here -->
+    
+            </ul>
+    </footer>
+
+    <footer id="quote-container">
+        <!-- Random quotes from the zelda franchise will populate here -->
+        <h3 id="zelda-quote"><!-- It's dangerous to go alone, take this! --></h3>
+        <p id="zelda-quote-author"><!-- Old Man --></p>
+        <p id="zelda-quote-game"><!-- The Legend of Zelda --></p>
+        <button id="quote-button"><!-- Reload Quote --></button>
+    </footer>
+
 </body>
 </html>

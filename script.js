@@ -1,10 +1,11 @@
-import { getSomeItems, getAllItems, getItemByID, getItemByName } from './get-functions.js'
-import { hyrulianQuoteAndAuthor } from './quotes.js'
+import { getSomeObjects, getAllObjects, getObjectByID, getObjectByName } from './get-functions.js'
+/* Import flavor images and flavor quotes */
+import { hyrulianQuoteAndAuthor, pixelImageList } from './quotes.js'
 
-const titleRupeeImage = document.querySelectorAll('.title-rupee-image')
+const titleImages = document.querySelectorAll('.title-images')
 
-const resultsList = document.getElementById('results-list')
-const resultsTitle = document.getElementById('results-title')
+const resultsList = document.querySelector('.results-list')
+const resultsTitle = document.querySelector('.results-title')
 const searchInput = document.getElementById('search-input')
 const searchButton = document.getElementById('search-button')
 const categoryButtons = document.querySelectorAll('.category-button')
@@ -15,28 +16,23 @@ const zeldaQuoteAuthor = document.getElementById('zelda-quote-author')
 const zeldaQuoteGame = document.getElementById('zelda-quote-game')
 const quoteButton = document.getElementById('quote-button')
 
-const rupeeImageList = ['./images/green-rupee-1.png', './images/green-rupee-2.png', './images/orange-rupee.png']
-
 
 // Display a random Hyrulian quote and a random Rupee color on page load
-let randomRupee = randNum(rupeeImageList.length)
-let randomQuote = randNum(hyrulianQuoteAndAuthor.length)
+
+/* Global variable to set loaded category, to  swap between detail.js base containers */
+let currentCategory
 
 
 window.addEventListener('load', async () => {
     console.log('PAGE IS LOADED')
     console.log('===================')
-    for (let rupeeImage of titleRupeeImage) {
-        rupeeImage.src = rupeeImageList[randomRupee]
-    }
+    loadRandomImage(pixelImageList, titleImages)
 
-    loadQuote(randomQuote)
-
+    loadRandomQuote()
 })
 
 quoteButton.addEventListener('click', function () {
-    randomQuote = randNum(hyrulianQuoteAndAuthor.length)
-    loadQuote(randomQuote)
+    loadRandomQuote()
 })
 
 for (let button of categoryButtons) {
@@ -47,24 +43,24 @@ for (let button of categoryButtons) {
         clearResults()
         let category = button.textContent.toLowerCase()
 
-        let items = await getAllItems(category, resultsTitle)
+        let objects = await getAllObjects(category, resultsTitle)
+        currentCategory = button.textContent.toLowerCase() /* Sets current category for detail.js */
+        console.log(`MAKING SURE CATEGORY IS SET TO: ${currentCategory}`)
         
-        /* Loads all items from the API pull into a list, attaches an event listener to each one to pull it's API ID */
-        for (let item of items) {
-            console.log(`Adding item: ${item.name} with ID: ${item.id}`)
-
-            let listItem = document.createElement('li')
-            listItem.classList.add('result-item')
-            listItem.innerHTML = `<a href="detail.html">${item.name}</a>`
-            /* Must attach even listener to each individual item for some reason lmao */
-            listItem.addEventListener('click', function () {
-                loadUpItem(item.id, item.name)
+        /* Loads all objects from the API pull into a list, attaches an event listener to each one to pull it's API ID */
+        for (let object of objects) {
+            let listObject = document.createElement('li')
+            listObject.classList.add('result-object')
+            listObject.innerHTML = `<a href="detail.html">${object.name}</a>`
+            /* Must attach even listener to each individual object for some reason lmao */
+            listObject.addEventListener('click', function () {
+                loadUpObject(object.id, object.name, currentCategory)
             })
-            resultsList.appendChild(listItem)
+            resultsList.appendChild(listObject)
         }
 
         /* Here to allow user to link to a show page */
-        let resultItems = document.querySelectorAll('.result-item')
+        let resultObjects = document.querySelectorAll('.result-object')
 
     })
 }
@@ -76,28 +72,39 @@ function clearResults() {
 }
 
 /* Returns a random number between 0 and the length of given array */
-/* Used for randomizing flavot text for website */
+/* Used for randomizing flavor text and images for website */
 function randNum(maxNum) {
 
     let randIndex = Math.floor(Math.random() * maxNum) 
     return randIndex
+
 }
 
-function loadQuote(randomNumber) {
-    zeldaQuote.textContent = hyrulianQuoteAndAuthor[randomNumber].quote
-    zeldaQuoteAuthor.textContent = hyrulianQuoteAndAuthor[randomNumber].author
-    zeldaQuoteGame.textContent = hyrulianQuoteAndAuthor[randomNumber].game
+function loadRandomQuote() {
+    let randomQuote = randNum(hyrulianQuoteAndAuthor.length)
+    zeldaQuote.textContent = hyrulianQuoteAndAuthor[randomQuote].quote
+    zeldaQuoteAuthor.textContent = hyrulianQuoteAndAuthor[randomQuote].author
+    zeldaQuoteGame.textContent = hyrulianQuoteAndAuthor[randomQuote].game
     if (quoteButton.textContent === ``)
         quoteButton.textContent = 'Reload quote'
 }
 
-function loadUpItem(itemID, itemName) {
+function loadRandomImage(imageList, imageElements) {
+        for (let image of imageElements) {
+            let randomPixelImage = randNum(imageList.length)
+            image.src = imageList[randomPixelImage]
+        }
+    }
 
-    console.log(`Clicked on item: ${itemName}`)
-    console.log(`Item ID: ${itemID}`)
-    localStorage.setItem('loadedItemID', itemID)
-    localStorage.setItem('loadedItemName', itemName)
-    /* Allows the item's ID to be passed onto a data.js file (Name later) */
+function loadUpObject(objectID, objectName, objectCategory) {
+
+    console.log(`Clicked on object: ${objectName}`)
+    console.log(`Object ID: ${objectID}`)
+    console.log(`Object category: ${objectCategory}`)
+    localStorage.setItem('loadedObjectID', objectID)
+    localStorage.setItem('loadedObjectName', objectName)
+    localStorage.setItem('loadedObjectCategory', objectCategory)
+    /* Allows the object's ID and category to be passed onto a data.js file (Name later) */
 }
 
-export { titleRupeeImage, resultsList, resultsTitle, searchInput, searchButton, categoryButtons, quoteContainer, zeldaQuote, zeldaQuoteAuthor, zeldaQuoteGame, quoteButton }
+export { randNum, loadRandomQuote, loadRandomImage, titleImages, loadUpObject }
