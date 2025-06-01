@@ -1,6 +1,6 @@
 import { getSomeObjects, getAllObjects, getObjectByID, getObjectByName, getObjectByLink } from './get-functions.js'
 import { hyrulianQuoteAndAuthor, pixelImageList } from './quotes.js'
-import { loadRandomImage, loadRandomQuote, titleImages, loadUpObject } from './script.js'
+import { loadRandomImage, loadRandomQuote, titleImages, loadUpObject, appendObjectToList } from './script.js'
 
 /* IDK if I'd use the DOM elements from the previous page */
 
@@ -123,13 +123,7 @@ function renderItemDetails(object) {
 /* Single function to render ALL related objects (Games, dungeons, characters) for an object that has one */
 async function renderRelatedObjects(objectLinks, objectCategory, objectListElement) {
     for (let objectLink of objectLinks) {
-        let newObjectElement = document.createElement('li')
         let objectData = await getObjectByLink(objectLink)
-        newObjectElement.innerHTML = `<a href="detail.html">${objectData.name}</a>` || '[No name available]'
-        /* Must attach even listener to each individual object for some reason lmao */
-        newObjectElement.addEventListener('click', function () {
-            loadUpObject(objectData.id, objectData.name, objectCategory)
-        })
-        objectListElement.appendChild(newObjectElement)
+        appendObjectToList(objectData, objectCategory, objectListElement)
     }
 }

@@ -27,7 +27,6 @@ window.addEventListener('load', async () => {
     console.log('PAGE IS LOADED')
     console.log('===================')
     loadRandomImage(pixelImageList, titleImages)
-
     loadRandomQuote()
 })
 
@@ -35,38 +34,28 @@ quoteButton.addEventListener('click', function () {
     loadRandomQuote()
 })
 
+/* Each button will pull results from the Zelda API of the related category */
 for (let button of categoryButtons) {
 
     button.addEventListener('click', async function () {
         console.log(`Category button clicked: ${button.textContent}`)
 
+        /* Clear previous screen */
         clearResults()
         let category = button.textContent.toLowerCase()
+        currentCategory = button.textContent.toLowerCase() /* Sets current category for detail.js */
 
         let objects = await getAllObjects(category, resultsTitle)
-        currentCategory = button.textContent.toLowerCase() /* Sets current category for detail.js */
-        console.log(`MAKING SURE CATEGORY IS SET TO: ${currentCategory}`)
         
-        /* Loads all objects from the API pull into a list, attaches an event listener to each one to pull it's API ID */
+        /* Loads all objects from the API pull into a list */
         for (let object of objects) {
-            let listObject = document.createElement('li')
-            listObject.classList.add('result-object')
-            listObject.innerHTML = `<a href="detail.html">${object.name}</a>`
-            /* Must attach even listener to each individual object for some reason lmao */
-            listObject.addEventListener('click', function () {
-                loadUpObject(object.id, object.name, currentCategory)
-            })
-            resultsList.appendChild(listObject)
+            appendObjectToList(object, currentCategory, resultsList)
         }
-
-        /* Here to allow user to link to a show page */
-        let resultObjects = document.querySelectorAll('.result-object')
 
     })
 }
 
-
-
+/* Cleans the screen lol */
 function clearResults() {
     resultsList.innerHTML = ''
 }
@@ -80,6 +69,7 @@ function randNum(maxNum) {
 
 }
 
+/* Loads random quote on the page */
 function loadRandomQuote() {
     let randomQuote = randNum(hyrulianQuoteAndAuthor.length)
     zeldaQuote.textContent = hyrulianQuoteAndAuthor[randomQuote].quote
@@ -89,12 +79,27 @@ function loadRandomQuote() {
         quoteButton.textContent = 'Reload quote'
 }
 
+/* Loads random images next to to title text */
 function loadRandomImage(imageList, imageElements) {
         for (let image of imageElements) {
             let randomPixelImage = randNum(imageList.length)
             image.src = imageList[randomPixelImage]
         }
-    }
+}
+
+/* Maps the names of a list of objects, enables link clicking = Clicking on the name will load up that object via its ID */
+/*  attaches an event listener to each one to pull it's API ID */
+function appendObjectToList(object, category, objectsListElement) {
+    let listItem = document.createElement('li')
+    listItem.classList.add('result-object')
+    listItem.innerHTML = `<a href="detail.html">${object.name}</a>`
+    listItem.addEventListener('click', function () {
+        loadUpObject(object.id, object.name, category)
+    })
+    objectsListElement.appendChild(listItem)
+}
+
+/* Captures the ID, name, and Category of a selected object before sending user to detail.html */
 
 function loadUpObject(objectID, objectName, objectCategory) {
 
@@ -107,4 +112,4 @@ function loadUpObject(objectID, objectName, objectCategory) {
     /* Allows the object's ID and category to be passed onto a data.js file (Name later) */
 }
 
-export { randNum, loadRandomQuote, loadRandomImage, titleImages, loadUpObject }
+export { randNum, loadRandomQuote, loadRandomImage, titleImages, loadUpObject, appendObjectToList }
