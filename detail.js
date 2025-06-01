@@ -86,78 +86,50 @@ function renderGameDetails(object) {
 
 function renderPlaceDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.appearances)
-    renderRelatedCharacters(object.inhabitants)
+    renderRelatedObjects(object.appearances, 'games', relatedGamesList)
+    renderRelatedObjects(object.inhabitants, 'characters', relatedCharactersList)
 }
 
 function renderDungeonDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.appearances)
+    renderRelatedObjects(object.appearances, 'games', relatedGamesList)
 }
 
 function renderCharacterDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.appearances)
+    renderRelatedObjects(object.appearances, 'games', relatedGamesList)
 }
 
 function renderBossDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.appearances)
-    renderRelatedDungeons(object.dungeons)
+    renderRelatedObjects(object.appearances, 'games', relatedGamesList)
+    renderRelatedObjects(object.dungeons, 'dungeons', relatedDungeonsList)
 }
 
 function renderMonsterDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.appearances)
+    renderRelatedObjects(object.appearances, 'games', relatedGamesList)
 }
 
 function renderStaffDetails(object) {
-    renderRelatedGames(object.worked_on)
+    renderRelatedObjects(object.worked_on, 'games', relatedGamesList)
 }
 
 function renderItemDetails(object) {
     searchResultDescription.textContent = object.description || '[No description available]'
-    renderRelatedGames(object.games)
+    renderRelatedObjects(object.games, 'games', relatedGamesList)
 }
 
-async function renderRelatedDungeons(dungeonLinks) {
-    for (let dungeonLink of dungeonLinks) {
-        let dungeonElement = document.createElement('li')
-        let dungeonData = await getObjectByLink(dungeonLink)
-        dungeonElement.innerHTML = `<a href="detail.html">${dungeonData.name}</a>` || '[No name available]'
+/* Single function to render ALL related objects (Games, dungeons, characters) for an object that has one */
+async function renderRelatedObjects(objectLinks, objectCategory, objectListElement) {
+    for (let objectLink of objectLinks) {
+        let newObjectElement = document.createElement('li')
+        let objectData = await getObjectByLink(objectLink)
+        newObjectElement.innerHTML = `<a href="detail.html">${objectData.name}</a>` || '[No name available]'
         /* Must attach even listener to each individual object for some reason lmao */
-        dungeonElement.addEventListener('click', function () {
-            let tempCategory = 'dungeons'
-            loadUpObject(dungeonData.id, dungeonData.name, tempCategory)
+        newObjectElement.addEventListener('click', function () {
+            loadUpObject(objectData.id, objectData.name, objectCategory)
         })
-        relatedDungeonsList.appendChild(dungeonElement)
-    }
-}
-
-async function renderRelatedGames(gameLinks) {
-    for (let gameLink of gameLinks) {
-        let gameElement = document.createElement('li')
-        let gameData = await getObjectByLink(gameLink)
-        gameElement.innerHTML = `<a href="detail.html">${gameData.name}</a>` || '[No name available]'
-        /* Must attach even listener to each individual object for some reason lmao */
-        gameElement.addEventListener('click', function () {
-            let tempCategory = 'games'
-            loadUpObject(gameElement.id, gameElement.name, tempCategory)
-        })
-        relatedGamesList.appendChild(gameElement)
-    }
-}
-
-async function renderRelatedCharacters(characterLinks) {
-    for (let characterLink of characterLinks) {
-        let characterElement = document.createElement('li')
-        let characterData = await getObjectByLink(characterLink)
-        characterElement.innerHTML = `<a href="detail.html">${characterData.name}</a>` || '[No name available]'
-        /* Must attach even listener to each individual object for some reason lmao */
-        characterElement.addEventListener('click', function () {
-            let tempCategory = 'characters'
-            loadUpObject(characterData.id, characterData.name, tempCategory)
-        })
-        relatedCharactersList.appendChild(characterElement)
+        objectListElement.appendChild(newObjectElement)
     }
 }

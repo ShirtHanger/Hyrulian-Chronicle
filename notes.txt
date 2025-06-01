@@ -1,47 +1,5 @@
 SCHEMAS (Strings unless otherwise specified)
 
-VER1
-Games
-VER2
-Monsters, Dungeon,
-VER3,
-Consider a single page for bosses, places, items
-
-Something like "If drill.appearances or drill.games or drill.worked_on" to fix naming problem
-    if drill.appearances
-        for related item of drill.appearances
-            FUNCTION
-    else if drill.games
-        for related item of drill.games
-            FUNCTION
-    else if drill.worked_on
-        for related item of drill.worked_on
-            FUNCTION
-    else
-        ERROR
-
-Staff has no description, possible check for that first, and if drill.description exists, it is NOT staff, otherwise it is staff
-    if drill.description
-        FUNCTION FOR NOT STAFF
-    else if drill.worked_on
-        for related item of drill.worked_on
-            FUNCTION FOR STAFF
-    else 
-        ERROR
-
-
-Also consider, for PLACES and Bosses
-"If drill.inhabitants or drill.dungeons"
-    if drill.appearances 
-        for related_item of drill.inhabitants
-            FUNCTION
-    else if drill.dungeons
-        for related_item of drill.dungeons
-            FUNCTION
-    else 
-        ERROR
-
-
 Games
     name
     description
