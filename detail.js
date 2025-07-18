@@ -1,5 +1,5 @@
 import { getSomeObjects, getAllObjects, getObjectByID, getObjectByName, getObjectByLink } from './get-functions.js'
-import { hyrulianQuoteAndAuthor, pixelImageList } from './quotes.js'
+import { legendOfZeldaQuotes, pixelImageList } from './quotes.js'
 import { loadRandomImage, loadRandomQuote, titleImages, loadUpObject, appendObjectToList } from './script.js'
 
 /* IDK if I'd use the DOM elements from the previous page */
@@ -52,7 +52,7 @@ window.addEventListener('load', async () => {
 })
 
 function renderObjectDetails(object, category) {
-    searchResultName.textContent = `${object.name} (${category})`
+    searchResultName.textContent = `${object.name}`
     searchResultId.textContent = `ID: ${object.id}`
     selectProperCategory(object, category)
     
@@ -185,7 +185,7 @@ async function renderRelatedObjects(objectLinks, objectCategory, objectListEleme
 function renderRelatedObjectBase(category) {
 
     let relatedBase = `
-            <h2>Appears in the following ${category}</h2>
+            <h2>Associated ${category}</h2>
             <ul class="results-list" id="related-${category}-list">
             </ul>
         `

@@ -1,6 +1,10 @@
-const hyrulianQuoteAndAuthor = [
+/* Contains qoutes and images to be used for flavor */
+
+const pixelImageList = ['./images/green-rupee-1.png', './images/green-rupee-2.png', './images/orange-rupee.png']
+
+const legendOfZeldaQuotes = [
     {
-        quote: `A sword weilds no strength unless the hand that holds it has courage.`,
+        quote: `A sword wields no strength unless the hand that holds it has courage.`,
         author: `The Hero’s Spirit`,
         game: `Twilight Princess`
     },
@@ -65,7 +69,7 @@ const hyrulianQuoteAndAuthor = [
         game: `Ocarina of Time`
     },
     {
-        quote: `Time passes, people move... Like a river's flow, it never ends... A childish mind will turn to noble ambition... Young love will become deep affection... The clear water's surface reflects growth.`,
+        quote: `Time passes, people move... like a river's flow, it never ends... a childish mind will turn to noble ambition... young love will become deep affection... the clear water's surface reflects growth.`,
         author: `Sheik`,
         game: `Ocarina of Time`
     },
@@ -80,82 +84,80 @@ const hyrulianQuoteAndAuthor = [
         game: `Ocarina of Time`
     },
     {
-        quote: `Light And Shadow Can't Mix, As We All Know. But... Never Forget That There's Another World Bound To This One.`,
+        quote: `Light and shadow can't mix, as we all know. But... never forget that there's another world bound to this one.`,
         author: `Midna`,
         game: `Twilight Princess`
     },
     {
-        quote: `I Lack Sufficient Data To Be Sure Of My Conclusion, But I Believe This Feeling Correlates Closest To What Your People Call… Happiness.`,
+        quote: `I lack sufficient data to be sure of my conclusion, but I believe this feeling correlates closest to what your people call… happiness.`,
         author: `Fi`,
         game: `Skyward Sword`
     },
     {
-        quote: `Zelda... We Rely On Your Knight, And That Legendary Sword He Carries. Our Last Line Of Defense Will Be Link.`,
+        quote: `Zelda... we rely on your knight, and that legendary sword he carries. Our last line of defense will be Link.`,
         author: `Rauru`,
         game: `Tears Of The Kingdom`
     },
     {
-        quote: `Do Not Look Away. You Witness A King's Revival, And The Birth Of His New World.`,
+        quote: `Do not look away. You witness a king's revival, and the birth of his new world.`,
         author: `Ganondorf`,
         game: `Tears Of The Kingdom`
     },
     {
-        quote: `Yet, After All That We’ve Seen, Do We Not Share The Same Wish? Let’s Make The Wish Together, Link.`,
+        quote: `Yet, after all that we’ve seen, do we not share the same wish? Let’s make the wish together, Link.`,
         author: `Princess Zelda`,
         game: `A Link Between Worlds`
     },
     {
-        quote: `We Shall Greet The Morning… Together.`,
+        quote: `We shall greet the morning… together.`,
         author: `Kafei And Anju`,
         game: `Majora’s Mask`
     },
     {
-        quote: `The Only Distance That Matters Is The Distance Between Our Hearts.`,
+        quote: `The only distance that matters is the distance between our hearts.`,
         author: `Rhondson`,
         game: `Tears Of The Kingdom`
     },
     {
-        quote: `If I Was A Seagull, I Would Fly As Far As I Could! I Would Fly To Faraway Places And Sing For Many People! …If I Wish To The Wind Fish, I Wonder If My Dream Will Come True...`,
+        quote: `If I was a seagull, I would fly as far as I could! I would fly to faraway places and sing for many people! …If I wish to the Wind Fish, I wonder if my dream will come true...`,
         author: `Marin`,
         game: `Link’s Awakening`
     },
     {
-        quote: `I Want You To Live For The Future. There May Be Nothing Left For You… But Despite That, You Must Look Forward And Walk A Path Of Hope, Trusting That It Will Sustain You When Darkness Comes.`,
+        quote: `I want you to live for the future. There may be nothing left for you… but despite that, you must look forward and walk a path of hope, trusting that it will sustain you when darkness comes.`,
         author: `King Of Hyrule`,
         game: `The Wind Waker`
     },
     {
-        quote: `An Incarnation Of My Hatred Shall Ever Follow Your Kind, Dooming Them To Wander A Blood-Soaked Sea Of Darkness For All Time!`,
+        quote: `An incarnation of my hatred shall ever follow your kind, dooming them to wander a blood-soaked sea of darkness for all time!`,
         author: `Demise`,
         game: `Skyward Sword`
     },
     {
-        quote: `I Wasn’t Kidding When I Said Pay! Now You’ll Pay The Ultimate Price!`,
+        quote: `I wasn’t kidding when I said pay! Now you’ll pay the ultimate price!`,
         author: `Shopkeeper`,
         game: `Link’s Awakening`
     },
     {
-        quote: `Courage Need Not Be Remembered, For It Is Never Forgotten.`,
+        quote: `Courage need not be remembered, for it is never forgotten.`,
         author: `Princess Zelda`,
         game: `Breath Of The Wild`
     },
     {
-        quote: `Do You Ever Feel A Strange Sadness As Dusk Falls? They Say It's The Only Time When Our World Intersects With Theirs... [...] That Is Why Loneliness Always Pervades The Hour Of Twilight.`,
+        quote: `Do you ever feel a strange sadness as dusk falls? They say it's the only time when our world intersects with theirs... [...] That is why loneliness always pervades the hour of twilight.`,
         author: `Rusl`,
         game: `Twilight Princess`
     },
     {
-        quote: `The Right Thing… What Is It? I Wonder… If You Do The Right Thing… Does It Really Make… Everybody… Happy?`,
+        quote: `The right thing… what is it? I wonder… if you do the right thing… does it really make… everybody… happy?`,
         author: `Moon Child`,
         game: `Majora’s Mask`
     }
 ]
 
-const pixelImageList = ['./images/green-rupee-1.png', './images/green-rupee-2.png', './images/orange-rupee.png']
+export { legendOfZeldaQuotes, pixelImageList }
 
-export { hyrulianQuoteAndAuthor, pixelImageList }
-
-/* ALL QUOTES FROM A REDDIT POST
+/* ALL QUOTES TAKEN FROM A REDDIT POST
 
 Misc
 

@@ -61,12 +61,17 @@ img {
     justify-content: center;
 }
 
-#category-buttons {
-    justify-content: space-evenly;
+#category-buttons, #search-buttons {
+    display: flex;
+    justify-content: center;
     margin: 2vw;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
 }
 
-.category-button {
+button {
     background: linear-gradient(145deg, #e9d8a6 60%, beige 100%);
     color: brown;
     border: 2px solid tomato;
@@ -79,7 +84,7 @@ img {
     text-shadow: 1px 1px 0 #fffbe6;
 }
 
-.category-button:hover, #quote-button:hover {
+button:hover {
     background: linear-gradient(145deg, gold 60%, beige 100%);
     transform: translateY(-2px) scale(1.04);
     border-color: red;
@@ -88,30 +93,16 @@ img {
 #quote-container {
     max-width: 500px;
     margin: 0 auto;
-    background: #f3ecd4;
     border: 2px solid #a67c52;
     border-radius: 12px;
     box-shadow: 0 4px 24px darkgray;
     padding: 24px 32px;
 }
 
-#quote-button {
-    background: linear-gradient(145deg, #e9d8a6 60%, beige 100%);
-    color: brown;
-    border: 2px solid tomato;
-    border-radius: 10px;
-    padding: 12px 28px;
-    font-size: 1.1em;
-    cursor: pointer;
-    box-shadow: 0 2px 8px silver;
-    transition: background 0.2s, transform 0.1s;
-    text-shadow: 1px 1px 0 #fffbe6;
-}
-
 .results-container {
+    
     max-width: 1000px;
-    margin: 0 auto;
-    background: silver;
+    margin: auto;
     border: 2px solid tomato;
     border-radius: 12px;
     box-shadow: 0 4px 24px silver;
@@ -128,25 +119,70 @@ img {
     flex-wrap: wrap;
 }
 
-/* IDK how this works but it makes everything neat and sorted */
-.result-object {
+/* IDK how this works but it makes indidivual list entries neat and sorted */
+.result-object, button {
     flex: 1 1 calc(25% - 2vw);
     box-sizing: border-box;
 }
+
 .result-object {
-    padding: 2vw 2vw;
-    border-bottom: 1px dashed tomato;
+    padding: 1vw;
+    border: 4px outset tomato;
     font-size: 1.1em;
     font-family: 'IM Fell English', serif;
     border-radius: 20%;
     background-color: goldenrod;
     margin: 1vw;
+    transition: background 0.2s, transform 0.1s;
 }
 
 .result-object:hover {
     background: linear-gradient(145deg, gold 60%, beige 100%);
     transform: translateY(-2px) scale(1.04);
     border-color: #7c5a1f;
+}
+
+#search-result-name {
+    font-family: 'UnifrakturCook', 'IM Fell English', serif;
+    font-size: 1.5em;
+    color: darkred;
+    margin-bottom: 8px;
+}
+
+#search-result-description {
+    font-family: 'UnifrakturCook', 'IM Fell English', serif;
+    color: darkgreen;
+}
+
+#data-container {
+    border: 3px solid #a67c52;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px #bfa77a88, 0 1px 0 #fffbe6 inset;
+    padding: 28px 36px 24px 36px;
+    margin: 32px auto 24px auto;
+    max-width: 600px;
+    position: relative;
+    font-family: 'IM Fell English', serif;
+    text-align: left;
+}
+
+#search-result-name {
+    font-family: 'UnifrakturCook', 'IM Fell English', serif;
+    font-size: 2em;
+    color: #7c2f1e;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #fffbe6, 0 2px 4px #a67c5233;
+}
+
+#search-result-description {
+    font-family: 'IM Fell English', serif;
+    color: #2d4a22;
+    font-size: 1.15em;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-shadow: 0 1px 0 #fffbe6;
 }
 
 #related-objects-container {
@@ -159,4 +195,61 @@ img {
     border-radius: 12px;
     box-shadow: 0 4px 24px darkgray;
     padding: 24px 32px;
+}
+
+.old-paper-background {
+    background: #f9f6ee url('backgrounds/old-paper-background.jpg');
+}
+
+/* Responsive styles for phone screens */
+@media (max-width: 800px) {
+    body {
+        padding: 0 4vw;
+        font-size: 1em;
+    }
+
+    #title-header {
+        size: larger;
+    }
+
+    #search-input {
+        width: 50%;
+        margin: 20px auto;
+        font-size: 1em;
+    }
+
+    #category-buttons {
+        max-width: 75%;
+        margin: auto;
+    }
+
+    #search-buttons {
+        max-width: 75%;
+        margin: auto;
+    }
+
+    button {
+        width: 75%;
+        margin-bottom: 12px;
+        font-size: 1em;
+        padding: 12px 0;
+    }
+
+    input {
+        width: 90vw;
+        font-size: 1em;
+    }
+
+    #quote-container,
+    .results-container,
+    #related-objects-container {
+        max-width: 100%;
+        padding: 16px 4vw;
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 40vw;
+        max-height: 20vw;
+    }
 }

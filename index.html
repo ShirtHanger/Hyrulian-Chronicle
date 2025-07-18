@@ -7,8 +7,10 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Axios for API pulls -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
 
+    <!-- Import API get functions and the main page script -->
     <script src="script.js" type="module" defer></script>
     <script src="links.js" type="module" defer></script>
     <script src="get-functions.js" type="module" defer></script>
@@ -25,8 +27,31 @@
         <img src="" alt="pixel image" class="title-images"></img>
     </header id="title-header">
 
-    <input type="text" id="user-input" placeholder="Search for a character...">
+    <header id="quote-container" class="old-paper-background">
+        <!-- Random quotes from the zelda franchise will populate here -->
+        <h3 id="zelda-quote"><!-- It's dangerous to go alone, take this! --></h3>
+        <p>- - -</p>
+        <h4 id="zelda-quote-author"><!-- Old Man --></h4>
+        <p id="zelda-quote-game"><!-- The Legend of Zelda --></p>
+        <button id="quote-button"><!-- New Quote --></button>
+    </header>
 
+ <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for a character...">
+        <h4>Search for...</h4>
+        <div id="search-buttons">
+            <button class="search-button">Characters</button>
+            <button class="search-button">Places</button>
+            <button class="search-button">Items</button>
+            <button class="search-button">Games</button>
+            <button class="search-button">Staff</button>
+            <button class="search-button">Bosses</button>
+            <button class="search-button">Dungeons</button>
+            <button class="search-button">Monsters</button>
+        </div>
+ </div>
+
+<h4>Show all...</h4>
 <div id="category-buttons">
         <button class="category-button">Characters</button>
         <button class="category-button">Places</button>
@@ -38,16 +63,10 @@
         <button class="category-button">Monsters</button>
 </div>
 
-<header id="quote-container">
-    <!-- Random quotes from the zelda franchise will populate here -->
-    <h3 id="zelda-quote"><!-- It's dangerous to go alone, take this! --></h3>
-    <p id="zelda-quote-author"><!-- Old Man --></p>
-    <p id="zelda-quote-game"><!-- The Legend of Zelda --></p>
-    <button id="quote-button"><!-- Reload Quote --></button>
-</header>
 
-<div class="results-container">
-    <h2 class="results-title">Search Results</h2>
+
+<div class="results-container old-paper-background">
+    <h2 class="results-title"></h2>
     <ul class="results-list">
         <!-- Search results will be populated here -->
     </ul>
